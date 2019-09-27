@@ -1,0 +1,19 @@
+int distanceMeasure() {
+  int distance;
+  int rangeCalc = 999;
+  int average = 0;
+  int measure;
+
+  distance = ultrasonic.read();
+
+  for (int i = 0; i < rangeCalc; i++) {
+    average += distance;
+
+    if (average == 0)
+    {
+      i - 10;
+    }
+    measure = average / rangeCalc;
+  }
+  return measure;
+}
