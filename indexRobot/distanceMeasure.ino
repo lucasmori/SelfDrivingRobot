@@ -11,7 +11,7 @@ int distanceMeasure() {
 
     if (average == 0)
     {
-      i - (rangeCalc/2);
+      i - (rangeCalc / 2);
     }
     measure = average / rangeCalc;
   }
