@@ -32,7 +32,7 @@
 
 ## Sobre o Projeto
 
-O projeto foi desenvolvido para a matéria de Eletrônica do Curso de Engenharia de Computação. Apelidado de Self Driving Robot, este autômato tem como objetivo desviar de obstáculos e não cair de degrais.
+O projeto foi desenvolvido para a matéria de Eletrônica do Curso de Engenharia de Computação. Apelidado de Self Driving Robot, este autômato tem como objetivo desviar de obstáculos e não cair de degraus.
 
 ### Feito Com
 
