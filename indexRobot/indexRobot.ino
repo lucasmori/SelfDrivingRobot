@@ -10,7 +10,7 @@
 
 const char* ssid = STASSID;
 const char* password = STAPSK;
-int go = false;
+int go = true;
 void handleRUN();
 void handleSTOP();
 ESP8266WebServer server(80);
@@ -55,13 +55,13 @@ void setup()
     Serial.println("MDNS responder started");
   }
 
-  server.on("/",HTTP_GET, handleRoot);
-  server.on("/run", HTTP_POST, handleRUN);
-  server.on("/stop", HTTP_POST, handleSTOP);
+  server.on("/", HTTP_GET, handleRoot);
+  server.on("/run", HTTP_GET, handleRUN);
+  server.on("/stop", HTTP_GET, handleSTOP);
   server.on("/inline", []() {
     server.send(200, "text/plain", "this works as well");
   });
- 
+
   server.onNotFound(handleNotFound);
 
   server.begin();
@@ -79,31 +79,32 @@ void setup()
   servo.write(90);
 }
 
-void frente() {
-  if (distanceMeasure() > 30) {
-    moveRobot("frente");
-  }
-}
 void handleRUN() {
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Access-Control-Max-Age", "10000");
+  server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET");
+  server.sendHeader("Access-Control-Allow-Headers", "*");
   go = true;
-  //server.sendHeader("Location", "/");
-  server.send(303, "text/plan", "the robot is running");
+  server.send(200, "text/plan", "the robot is running");
 }
 
 void handleSTOP() {
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Access-Control-Max-Age", "10000");
+  server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET");
+  server.sendHeader("Access-Control-Allow-Headers", "*");
   go = false;
-  //server.sendHeader("Location", "/");
-  server.send(303, "text/plan", "the robot has stop");
+  server.send(200, "text/plan", "the robot has stop");
 }
+
 void loop()
 {
-
   server.handleClient();
   if (go == true) {
 
-    while (IRRead()) {
+    if (IRRead()) {
       if (distanceMeasure() > 30) {
-        frente();
+        moveRobot("frente");
       }
       else if (distanceMeasure() < 30) {
         moveRobot("parar");
@@ -115,7 +116,7 @@ void loop()
           moveRobot("parar");
           servo.write(90);
           delay(500);
-          frente();
+          moveRobot("frente");
         }
         else {
 
@@ -127,14 +128,17 @@ void loop()
             moveRobot("parar");
             servo.write(90);
             delay(500);
-            frente();
+            moveRobot("frente");
           }
         }
       }
-
     } // end IRRead
-  }
+    else {
+      moveRobot("parar");
+      servo.write(90);
+    }
+  }else{
   moveRobot("parar");
   servo.write(90);
-
+  }
 } // end loop

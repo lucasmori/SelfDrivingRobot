@@ -1,7 +1,9 @@
 void handleRoot() {
+  server.sendHeader("Access-Control-Allow-Origin", "*");
+  server.sendHeader("Access-Control-Max-Age", "10000");
+  server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET");
+  server.sendHeader("Access-Control-Allow-Headers", "*");
   server.send(200, "text/plain", "hello from esp8266!");
-  server.send(200, "text/html", "<button action=\"/run\" method=\"POST\"><input type=\"submit\" value=\"Toggle RUN\"></button>");
-  server.send(200, "text/html", "<button action=\"/stop\" method=\"POST\"><input type=\"submit\" value=\"Toggle STOP\"></button>");
 }
 
 void handleNotFound() {
@@ -17,4 +19,16 @@ void handleNotFound() {
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
   server.send(404, "text/plain", message);
+  if (server.method() == HTTP_OPTIONS)
+  {
+    server.sendHeader("Access-Control-Allow-Origin", "*");
+    server.sendHeader("Access-Control-Max-Age", "10000");
+    server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET,OPTIONS");
+    server.sendHeader("Access-Control-Allow-Headers", "*");
+    server.send(204);
+  }
+  else
+  {
+    server.send(404, "text/plain", "");
+  }
 }
