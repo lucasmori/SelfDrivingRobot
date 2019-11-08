@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container-pai {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50px;
+  padding: 50px;
+  background: blue;
+}
+
+.container-pai .centraliza-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-pai .header {
+  background: white;
+  border-radius: 50px;
+  height: 250px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-pai .header h2 {
+  color: black;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 75px;
+}
+
+.container-pai .container-botoes {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.container-pai .container-botoes button {
+  width: 200px;
+  height: 100px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  border: none;
+  outline: none;
+}
+
+.container-pai .container-botoes .iniciarButton {
+  background: green;
+}
+
+.container-pai .container-botoes .pararButton {
+  background: red;
+}
+
+.centraliza {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
