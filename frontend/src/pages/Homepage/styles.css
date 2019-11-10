@@ -5,34 +5,50 @@
   padding: 0;
 }
 
-.container-pai {
+.background {
+  background-image: url(../../assets/bg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.panel {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.panel-container {
   width: 800px;
   height: 500px;
   display: flex;
   flex-direction: column;
   border-radius: 50px;
   padding: 50px;
-  background: blue;
+  background: #5382dc;
+  /* opacity: 80%; */
 }
 
-.container-pai .centraliza-header {
+.panel-container .header-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.container-pai .header {
-  background: white;
+.panel-container .header {
+  background: #ffffff;
   border-radius: 50px;
-  height: 250px;
+  height: 100px;
   width: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.container-pai .header h2 {
-  color: black;
+.panel-container .header h2 {
+  color: #000000;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -40,7 +56,7 @@
   line-height: 75px;
 }
 
-.container-pai .container-botoes {
+.panel-container .buttons-container {
   display: flex;
   flex: 1;
   align-items: center;
@@ -48,7 +64,7 @@
   justify-content: space-around;
 }
 
-.container-pai .container-botoes button {
+.panel-container .buttons-container button {
   width: 200px;
   height: 100px;
   font-family: Roboto;
@@ -59,18 +75,16 @@
   outline: none;
 }
 
-.container-pai .container-botoes .iniciarButton {
-  background: green;
+.panel-container .buttons-container .startButton {
+  background: #75ff5f;
+}
+.panel-container .buttons-container .startButton:active {
+  background: #35a325;
 }
 
-.container-pai .container-botoes .pararButton {
-  background: red;
+.panel-container .buttons-container .stopButton {
+  background: #ff5f5f;
 }
-
-.centraliza {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.panel-container .buttons-container .stopButton:active {
+  background: #ad3232;
 }

@@ -16,20 +16,22 @@ export default function Homepage() {
   }
 
   return (
-    <div className="centraliza">
-      <div className="container-pai">
-        <div className="centraliza-header">
-          <div className="header">
-            <h2>CONTROLE DE MOVIMENTO</h2>
+    <div className="background">
+      <div className="panel">
+        <div className="panel-container">
+          <div className="header-container">
+            <div className="header">
+              <h2>CONTROLE DE MOVIMENTO</h2>
+            </div>
           </div>
-        </div>
-        <div className="container-botoes">
-          <button className="iniciarButton" onClick={startSubmit}>
-            INICIAR
-          </button>
-          <button className="pararButton" onClick={stopSubmit}>
-            PARAR
-          </button>
+          <div className="buttons-container">
+            <button className="startButton" onClick={startSubmit}>
+              INICIAR
+            </button>
+            <button className="stopButton" onClick={stopSubmit}>
+              PARAR
+            </button>
+          </div>
         </div>
       </div>
     </div>
