@@ -28,7 +28,7 @@ ESP8266WebServer server(80);
 #define LEFT_MOTOR_IN2 D6
 #define RIGHT_MOTOR_IN3 D7
 #define RIGHT_MOTOR_IN4 D8
-
+#define CONNECTION_FLAG D4
 Servo servo;
 
 Ultrasonic ultrasonic(TRIGGER_PIN, ECHO_PIN);
@@ -41,12 +41,16 @@ void setup()
   Serial.println("");
 
   // Wait for connection
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
+
+  //if (digitalRead(CONNECTION_FLAG)) {
+    while (WiFi.status() != WL_CONNECTED) {
+      delay(500);
+      Serial.print(".");
+    }
+ // }
   Serial.println("");
-  Serial.print("Connected to ");
+  Serial.println("Self Driving Robot WiFi screen status\t");
+  Serial.print("Connected to SSID: ");
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
@@ -80,6 +84,7 @@ void setup()
 }
 
 void handleRUN() {
+  server.sendHeader("Accept" , "application/json");
   server.sendHeader("Access-Control-Allow-Origin", "*");
   server.sendHeader("Access-Control-Max-Age", "10000");
   server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET");
@@ -89,6 +94,7 @@ void handleRUN() {
 }
 
 void handleSTOP() {
+  server.sendHeader("Accept" , "application/json");
   server.sendHeader("Access-Control-Allow-Origin", "*");
   server.sendHeader("Access-Control-Max-Age", "10000");
   server.sendHeader("Access-Control-Allow-Methods", "PUT,POST,GET");
@@ -137,8 +143,8 @@ void loop()
       moveRobot("parar");
       servo.write(90);
     }
-  }else{
-  moveRobot("parar");
-  servo.write(90);
+  } else {
+    moveRobot("parar");
+    servo.write(90);
   }
 } // end loop

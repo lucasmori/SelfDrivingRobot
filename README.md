@@ -44,7 +44,7 @@ Abaixo segue o que foi utilizado na criação deste autômato:
 - [Driver Motor Ponte H L928N](https://www.amazon.com.br/Driver-Motor-Ponte-H-L298n/dp/B01KF4QF4K/ref=sr_1_fkmr2_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=ponte+h+arduino&qid=1570998906&sr=8-1-fkmr2) - O Driver Motor é utilizado para o acionamento dos motores, já que eles precisam de uma corrente muito maior do que a fornecida pelo MicroControlador.
 - [2x Motor DC 3V A 6V Com Redução + Roda](https://www.amazon.com.br/Motor-Redu%C3%A7%C3%A3o-Rob%C3%B3tica-Arduino-Carro/dp/B07GHYMBHJ/ref=sr_1_fkmr1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=roda+boba+arduino&qid=1570999078&sr=8-1-fkmr1) - Os motores junto com suas caixas de redução é que vão dar movimento ao nosso Robô, com as caixas de redução temos um torque satisfatório para o Robô.
 - [Chassi de Acrílico]() - É a estrutura onde tudo está montado e fixado.
-- [Power Bank 5V 2.1A]() - É a fonte de energia que o nosso Robô vai utlizar para funcionar,  alimentando os motores, sensores e o MicroControlador.
+- [Power Bank 5V 2.1A]() - É a fonte de energia que o nosso Robô vai utlizar para funcionar, alimentando os motores, sensores e o MicroControlador.
 
 <!-- GETTING STARTED -->
 
@@ -69,8 +69,9 @@ git clone https://github.com/lucasmori/self-driving-robot.git
 ```sh
 npm install
 ```
+
 3. Dentro da pasta **src/services** entrando no arquivo `api.js` você precisa mudar o conteúdo de baseURL para o IP que seu NodeMCU ESP8266 gera.
-[Conferir o IP](#conferindo-o-ip).
+   [Conferir o IP](#conferindo-o-ip).
 
 4. Para rodar o frontend do projeto pasta utilizar seguinte comando na raiz da pasta **frontend** comando:
 
@@ -90,9 +91,11 @@ Primeiramente na pasta **indexRobot**, no arquivo `indexRobot.ino`, devem ser al
 #define STASSID "COLOQUE_O_NOME_DA_SUA_REDE_AQUI"
 #define STAPSK  "COLOQUE_A_SENHA_DA_SUA_REDE_AQUI"
 ```
+
 Em seguida será necessário compilar o codigo para o NodeMCU.
 
 ##### Conferindo o IP
+
 Para conferir o IP que seu NodeMCU ESP8266 está gerando deve ser feita uma inicialização com o USB conectado, e abrir o monitor serial do arduino IDE, colocando a velocidade para 115200 será exibido algumas mensagens, e uma delas é o IP que ele está fornecendo.
 
 ---
@@ -100,11 +103,13 @@ Para conferir o IP que seu NodeMCU ESP8266 está gerando deve ser feita uma inic
 <!-- ELETRIC SCHEMA -->
 
 ## Esquema Elétrico
+
 [WIP]
 
 <!-- PCI SHIELD -->
 
 ## PCI Shield
+
 [WIP]
 
 <!-- LICENSE -->
